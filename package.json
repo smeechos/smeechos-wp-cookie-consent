@@ -11,5 +11,16 @@
   "bugs": {
     "url": "https://github.com/smeechos/smeechos-wp-cookie-consent/issues"
   },
-  "homepage": "https://github.com/smeechos/smeechos-wp-cookie-consent#readme"
+  "homepage": "https://github.com/smeechos/smeechos-wp-cookie-consent#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^4.11.0"
+  }
 }
