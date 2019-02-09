@@ -24,12 +24,21 @@ class WP_Cookie_Consent {
             die;
         }
 
-        if ( !defined( 'WPCC_PLUGIN_ROOT' ) ) {
+        if ( !defined( 'WPCC_PLUGIN_ROOT_DIR' ) ) {
             define( 'WPCC_PLUGIN_ROOT_DIR', plugin_dir_path(__FILE__) );
         }
 
+        if ( !defined( 'WPCC_PLUGIN_BASE_NAME' ) ) {
+            define( 'WPCC_PLUGIN_BASE_NAME', plugin_basename(__FILE__) );
+        }
+
+        if ( !defined( 'WPCC_PLUGIN_URL' ) ) {
+            define( 'WPCC_PLUGIN_URL', plugin_dir_url(__FILE__) );
+        }
+
         // Includes
-        include( plugin_dir_path( __FILE__ ) . 'includes/class-admin-settings.php' );
+        include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-admin-settings.php' );
+        include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-load-assets.php' );
     }
 
 }
