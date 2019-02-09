@@ -1,0 +1,15 @@
+{
+  "name": "smeechos-wp-cookie-consent",
+  "version": "1.0.0",
+  "description": "Simple cookie consent plugin.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smeechos/smeechos-wp-cookie-consent.git"
+  },
+  "author": "smeechos",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/smeechos/smeechos-wp-cookie-consent/issues"
+  },
+  "homepage": "https://github.com/smeechos/smeechos-wp-cookie-consent#readme"
+}
