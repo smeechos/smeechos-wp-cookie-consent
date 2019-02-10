@@ -13,6 +13,8 @@ class Load_Assets
         // Actions
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
     }
 
     /**
@@ -33,10 +35,34 @@ class Load_Assets
     public function enqueue_frontend_scripts() {
         wp_enqueue_script(
             'wpcookieconsent-frontend',
-            WPCC_PLUGIN_URL . 'assets/js/dist/scripts.min.css',
+            WPCC_PLUGIN_URL . 'assets/js/public/dist/scripts.min.css',
             [ 'jquery' ],
             '1.0.0'
         );
+    }
+
+    /**
+     * Enqueue styles for the admin of the plugin.
+     */
+    public function enqueue_admin_styles( $hook ) {
+        if ( 'toplevel_page_wpcookieconsent' == $hook ) {
+            wp_enqueue_style( 'wp-color-picker' );
+        }
+    }
+
+    /**
+     * Enqueue scripts for the admin of the plugin.
+     */
+    public function enqueue_admin_scripts( $hook ) {
+        if ( 'toplevel_page_wpcookieconsent' == $hook ) {
+            wp_enqueue_script(
+                'wpcookieconsent-admin',
+                WPCC_PLUGIN_URL . 'assets/js/admin/dist/scripts.min.js',
+                [ 'jquery', 'wp-color-picker' ],
+                '1.0.0',
+                true
+            );
+        }
     }
 }
 

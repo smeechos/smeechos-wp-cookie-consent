@@ -29,13 +29,22 @@ function minifyCSS(cb) {
 }
 
 function minifyJS(cb) {
-    return gulp.src('./assets/js/src/scripts.js')
+    return gulp.src('./assets/js/public/src/scripts.js')
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./assets/js/dist'));
+        .pipe(gulp.dest('./assets/js/public/dist'));
+}
+
+function minifyAdminJS(cb) {
+    return gulp.src('./assets/js/admin/src/scripts.js')
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('./assets/js/admin/dist'));
 }
 
 
-exports.default = series(complieSass, minifyCSS, minifyJS);
+exports.default = series(complieSass, minifyCSS, minifyJS, minifyAdminJS);
