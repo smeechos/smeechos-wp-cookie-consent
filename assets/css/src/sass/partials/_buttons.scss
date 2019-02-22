@@ -1,0 +1,11 @@
+#wp-cookie-consent-buttons {
+	width: 30%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+	button {
+		padding: .5em 1.8rem;
+		font-size: .8rem;
+	}
+}

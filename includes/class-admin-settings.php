@@ -91,7 +91,8 @@ class Admin_Settings
             'content_body'              => 'Body Text',
             'content_text_color'        => 'Content Text Color',
             'modal_dismiss'             => 'Modal Dismiss Setting',
-            'modal_button_text'         => 'Button Text',
+            'modal_accept_button_text'  => 'Accept Button Text',
+            'modal_decline_button_text' => 'Decline Button Text',
             'modal_button_text_color'   => 'Button Text Color',
             'modal_button_color'        => 'Button Color',
             'modal_dismiss_effect'      => 'Dismiss Effect',
@@ -198,14 +199,24 @@ class Admin_Settings
         ';
     }
 
-    public function wpcookieconsent_modal_button_text_display() {
+    public function wpcookieconsent_modal_accept_button_text_display() {
         $button_text = '';
 
-        if ( isset( $this->options['button_text'] ) ) {
-            $button_text = esc_html( $this->options['button_text'] );
+        if ( isset( $this->options['accept_button_text'] ) ) {
+            $button_text = esc_html( $this->options['accept_button_text'] );
         }
 
-        echo '<input class="regular-text" type="text" name="wpcookieconsent_settings[button_text]" value="' . $button_text  .'">';
+        echo '<input class="regular-text" type="text" name="wpcookieconsent_settings[accept_button_text]" value="' . $button_text  .'">';
+    }
+
+    public function wpcookieconsent_modal_decline_button_text_display() {
+        $button_text = '';
+
+        if ( isset( $this->options['decline_button_text'] ) ) {
+            $button_text = esc_html( $this->options['decline_button_text'] );
+        }
+
+        echo '<input class="regular-text" type="text" name="wpcookieconsent_settings[decline_button_text]" value="' . $button_text  .'">';
     }
 
     public function wpcookieconsent_modal_button_text_color_display() {

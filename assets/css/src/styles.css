@@ -1,0 +1,17 @@
+#wp-cookie-consent-banner {
+  display: flex;
+  padding: 0 1rem;
+  background-color: #34495e;
+  color: #dedede; }
+
+#wp-cookie-consent-body {
+  width: 70%; }
+
+#wp-cookie-consent-buttons {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+  #wp-cookie-consent-buttons button {
+    padding: .5em 1.8rem;
+    font-size: .8rem; }
