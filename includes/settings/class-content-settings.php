@@ -66,6 +66,26 @@ class Content_Settings extends Settings_Parent
                 ]
             ],
             [
+                'id' => 'wpcookieconsent_close_button_color_options',
+                'title' => 'Close Button Color',
+                'callback' => 'color_display',
+                'page' => $this->get_page_name(),
+                'section' => $this->get_setting_id(),
+                'args' => [
+                    'option'    => 'close_button_color'
+                ]
+            ],
+            [
+                'id' => 'wpcookieconsent_close_button_hover_options',
+                'title' => 'Close Button Hover Color',
+                'callback' => 'color_display',
+                'page' => $this->get_page_name(),
+                'section' => $this->get_setting_id(),
+                'args' => [
+                    'option'    => 'close_button_hover'
+                ]
+            ],
+            [
                 'id' => 'wpcookieconsent_accept_button_options',
                 'title' => 'Accept Button Options',
                 'callback' => 'button_display',

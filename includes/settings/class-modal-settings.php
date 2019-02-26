@@ -12,14 +12,14 @@ class Modal_Settings extends Settings_Parent
         $fields = [
             [
                 'id' => 'wpcookieconsent_dismiss_effect_options',
-                'title' => 'Decline Button Options',
+                'title' => 'Dismiss Effect',
                 'callback' => 'radio_display',
                 'page' => $this->get_page_name(),
                 'section' => $this->get_setting_id(),
                 'args' => [
                     'option'        => 'dismiss_effect',
                     'radio_1'       => 'Default',
-                    'radio_2'       => 'Choice',
+                    'radio_2'       => 'Fade',
                     'description'   => __( 'Default will simply hide the modal upon closing.', 'wpcookieconsent' )
                 ]
             ],
@@ -31,6 +31,18 @@ class Modal_Settings extends Settings_Parent
                 'section' => $this->get_setting_id(),
                 'args' => [
                     'option'        => 'background_color'
+                ]
+            ],
+            [
+                'id' => 'wpcookieconsent_background_opacity_options',
+                'title' => 'Transparent Background',
+                'callback' => 'radio_display',
+                'page' => $this->get_page_name(),
+                'section' => $this->get_setting_id(),
+                'args' => [
+                    'option'        => 'background_opacity',
+                    'radio_1'       => 'None',
+                    'radio_2'       => 'Add'
                 ]
             ]
         ];

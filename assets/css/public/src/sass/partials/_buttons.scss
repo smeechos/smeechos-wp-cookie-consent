@@ -7,5 +7,16 @@
 	button {
 		padding: .5em 1.8rem;
 		font-size: .8rem;
+		transition: background-color .2s ease-in-out, color .2s ease-in-out;
+	}
+}
+
+#wp-cookie-consent-close {
+	position: absolute;
+	top: 0;
+	right: 1rem;
+
+	a:focus {
+		text-decoration: none;
 	}
 }

@@ -219,31 +219,36 @@ class Settings_Parent
             $text = esc_html( $this->options[ $args['option'] ]['text'] );
         }
 
-        if ( isset( $this->options[ $args['option'] ]['back-color'] ) ) {
-            $back = esc_html( $this->options[ $args['option'] ]['back-color'] );
+        if ( isset( $this->options[ $args['option'] ]['back_color'] ) ) {
+            $back = esc_html( $this->options[ $args['option'] ]['back_color'] );
         }
 
-        if ( isset( $this->options[ $args['option'] ]['text-color'] ) ) {
-            $color = esc_html( $this->options[ $args['option'] ]['text-color'] );
+        if ( isset( $this->options[ $args['option'] ]['text_color'] ) ) {
+            $color = esc_html( $this->options[ $args['option'] ]['text_color'] );
         }
 
-        if ( isset( $this->options[ $args['option'] ]['hover-back'] ) ) {
-            $hover_back = esc_html( $this->options[ $args['option'] ]['hover-back'] );
+        if ( isset( $this->options[ $args['option'] ]['hover_back'] ) ) {
+            $hover_back = esc_html( $this->options[ $args['option'] ]['hover_back'] );
         }
 
-        if ( isset( $this->options[ $args['option'] ]['hover-text'] ) ) {
-            $hover_text = esc_html( $this->options[ $args['option'] ]['hover-text'] );
+        if ( isset( $this->options[ $args['option'] ]['hover_text'] ) ) {
+            $hover_text = esc_html( $this->options[ $args['option'] ]['hover_text'] );
         }
 
         $html = '<label>Button Text:</label><br /><input class="regular-text" type="text" name="' . $this->option . '[' . $args['option'] .'][text]" value="' . $text . '"><br /><br />';
-        $html .= '<label>Background Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][back-color]" class="color-field" value="' . $back . '"><br />';
-        $html .= '<label>Text Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][text-color]" class="color-field" value="' . $color . '"><br />';
-        $html .= '<label>Hover Background Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][hover-back]" class="color-field" value="' . $hover_back . '"><br />';
-        $html .= '<label>Hover Text Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][hover-text]" class="color-field" value="' . $hover_text . '"><br />';
+        $html .= '<label>Background Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][back_color]" class="color-field" value="' . $back . '"><br />';
+        $html .= '<label>Text Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][text_color]" class="color-field" value="' . $color . '"><br />';
+        $html .= '<label>Hover Background Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][hover_back]" class="color-field" value="' . $hover_back . '"><br />';
+        $html .= '<label>Hover Text Color:</label><br /><input type="text" name="' . $this->option . '[' . $args['option'] .'][hover_text]" class="color-field" value="' . $hover_text . '"><br />';
 
         echo $html;
     }
 
+    /**
+     * Displays the cookie duration settings.
+     *
+     * @param array $args Arguments for the specific field.
+     */
     public function cookie_duration_display( $args )
     {
         $num = 1;
@@ -270,6 +275,20 @@ class Settings_Parent
         $html .= '</select>';
 
         echo $html;
+    }
+
+    public function close_button_display( $args )
+    {
+        $color = '#b5b5b5';
+        $hover = '#a5a5a5';
+
+        if ( isset( $this->options[ $args['option'] ]['color'] ) ) {
+            $color = esc_html( $this->options[ $args['option'] ]['color'] );
+        }
+
+        if ( isset( $this->options[ $args['option'] ]['hover'] ) ) {
+            $hover = esc_html( $this->options[ $args['option'] ]['hover'] );
+        }
     }
 
     /**

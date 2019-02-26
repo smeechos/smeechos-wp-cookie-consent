@@ -1,10 +1,16 @@
 #wp-cookie-consent-banner {
 	display: flex;
 	padding: 0 1rem;
-	background-color: rgb(52, 73, 94);
-	color: #dedede;
+	//background-color: rgb(52, 73, 94);
+	//color: #dedede;
+	position: fixed;
+	bottom: 0;
 }
 
-#wp-cookie-consent-body {
+.wp-cookie-consent-flex-width {
 	width: 70%;
+}
+
+.wp-cookie-consent-full-width {
+	width: 100%;
 }
