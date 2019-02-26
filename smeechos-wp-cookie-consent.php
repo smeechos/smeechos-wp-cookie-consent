@@ -36,12 +36,31 @@ class WP_Cookie_Consent {
             define( 'WPCC_PLUGIN_URL', plugin_dir_url(__FILE__) );
         }
 
+        if ( !defined( 'WPCC_COOKIE_NAME' ) ) {
+            define( 'WPCC_COOKIE_NAME', 'wpcc_cookie_consent' );
+        }
+
         // Includes
         include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-admin-settings.php' );
         include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-load-assets.php' );
         include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-modal.php' );
     }
 
+
+
 }
 
 new WP_Cookie_Consent();
+
+/**
+ * Determines if the user consented to cookies.
+ *
+ * @return bool
+ */
+function cookies_accepted() {
+    if ( isset($_COOKIE[WPCC_COOKIE_NAME]) && $_COOKIE[WPCC_COOKIE_NAME] === 'accept' ) {
+        return true;
+    } else {
+        return false;
+    }
+}

@@ -23,7 +23,7 @@ class Load_Assets
     public function enqueue_frontend_styles() {
         wp_enqueue_style(
             'wpcookieconsent-frontend',
-            WPCC_PLUGIN_URL . 'assets/css/dist/styles.min.css',
+            WPCC_PLUGIN_URL . 'assets/css/public/dist/styles.min.css',
             [],
             '1.0.0'
         );
@@ -47,6 +47,13 @@ class Load_Assets
     public function enqueue_admin_styles( $hook ) {
         if ( 'toplevel_page_wpcookieconsent' == $hook ) {
             wp_enqueue_style( 'wp-color-picker' );
+
+            wp_enqueue_style(
+                'wpcookieconsent-admin',
+                WPCC_PLUGIN_URL . 'assets/css/admin/dist/styles.min.css',
+                [],
+                '1.0.0'
+            );
         }
     }
 
