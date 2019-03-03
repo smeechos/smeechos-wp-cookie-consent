@@ -5,6 +5,8 @@ const { series } = require( 'gulp' );
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 // let watch = require('gulp-watch');
+let babel = require("gulp-babel");
+let webpack = require('webpack-stream');
 let rename = require('gulp-rename');
 let uglify = require('gulp-uglify');
 let cleanCSS = require('gulp-clean-css');
@@ -48,7 +50,7 @@ function minifyAdminCSS(cb) {
 
 function minifyPublicJS(cb) {
     return gulp.src('./assets/js/public/src/scripts.js')
-        .pipe(uglify())
+        .pipe(webpack({output: {filename: 'scripts.js'} }))
         .pipe(rename({
             suffix: '.min'
         }))

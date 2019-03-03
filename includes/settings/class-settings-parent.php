@@ -80,15 +80,18 @@ class Settings_Parent
         if ( $this->option === 'wpcookieconsent_cookie_settings' ) {
             $html = '<div class="notice notice-info">
 	                    <p>
-	                    ' . __('Cookies will only be used if the <strong>User Consent Settings</strong> is set to <strong>Choice</strong>, 
-                            within the <strong>Content Settings</strong> tab.', 'wpcookieconsent') . '		
+	                    ' . __('A cookie will be set to control the display of the banner.
+                        Depending on the plugin settings and the user\'s choice, the cookie <strong>wp_user_cookie_consent</strong> will be set to one of the following values:', 'wpcookieconsent') . '		
 	                    </p>
 	                    <p>
-	                    Depending on the user\'s choice, the cookie <strong>wp_user_cookie_consent</strong> will be set to one of the following values:<br />	                  
-	                    - If user accepts, value will be true.<br />
-	                    - If user declines, value will be false.<br />
-	                    The cookie will last as long as the specified duration below.
+	                    ' . __('If the <strong>User Consent Settings</strong> is set to <strong>Choice</strong>, within the <strong>Content Settings</strong> tab,', 'wpcookieconsent') . '                
+	                    <ol>
+	                        <li>' . __('If user accepts, value will be <em>true</em>.', 'wpcookieconsent') . '</li>
+	                        <li>' . __('If user declines, value will be <em>false</em>.', 'wpcookieconsent') . '</li>
+                        </ol>
+                        ' . __('If the <strong>User Consent Settings</strong> is set to <strong>Default</strong>, the cookie value will be <em>default</em>.', 'wpcookieconsent') . '
                         </p>
+	                    <p>' . __('The cookie will last as long as the specified duration below. While the cookie is set, users will not see the banner.', 'wpcookieconsent') . '</p>
             </div>';
 
             echo $html;

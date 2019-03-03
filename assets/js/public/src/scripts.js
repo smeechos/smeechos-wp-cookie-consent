@@ -1,3 +1,8 @@
+// Imports
+import ModalHelper from './components/modal-handler';
+
 (function ($) {
-    // Code to come
+    ModalHelper.init({
+        debug: false
+    });
 })( jQuery );

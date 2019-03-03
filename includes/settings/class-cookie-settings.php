@@ -5,8 +5,6 @@ namespace Smeechos\WP_Cookie_Consent\Includes\Settings;
 
 class Cookie_Settings extends Settings_Parent
 {
-    private $page = 'wpcookieconsent_cookie_settings', $section = 'wpcookieconsent_cookie_section';
-
     /**
      * Adds the array of fields to the content section of the plugin.
      */
@@ -25,7 +23,9 @@ class Cookie_Settings extends Settings_Parent
                         'seconds'   => 'Seconds',
                         'minutes'   => 'Minutes',
                         'hours'     => 'Hours',
-                        'days'      => 'Days'
+                        'days'      => 'Days',
+                        'months'    => 'Months',
+                        'years'     => 'Years'
                     ]
                 ]
             ]

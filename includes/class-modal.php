@@ -15,7 +15,9 @@ class Modal
         $this->modal = get_option( 'wpcookieconsent_modal_settings' );
 
         // Actions
-        add_action( 'wp_footer', array( $this, 'display_modal') );
+        if ( isset($_COOKIE['wp_user_cookie_consent']) === false ) {
+            add_action( 'wp_footer', array( $this, 'display_modal') );
+        }
     }
 
     /**
@@ -49,8 +51,8 @@ class Modal
         } else {
             if ( isset($this->content['accept_button']['text']) && isset($this->content['decline_button']['text']) ) {
                 $html .= '<div id="wp-cookie-consent-buttons">
-                        <button id="wp-cookie-consent-accept" type="button">' . $this->content['accept_button']['text'] . '</button>
-                        <button id="wp-cookie-consent-decline" type="button">' . $this->content['decline_button']['text'] . '</button>
+                        <button id="wp-cookie-consent-accept" type="button" data-wp-cookie-consent="true">' . $this->content['accept_button']['text'] . '</button>
+                        <button id="wp-cookie-consent-decline" type="button" data-wp-cookie-consent="false">' . $this->content['decline_button']['text'] . '</button>
                       </div>';
             }
         }

@@ -62,7 +62,8 @@ class Content_Settings extends Settings_Parent
                     'option'    => 'user_consent',
                     'radio_1'   => 'Default',
                     'radio_2'   => 'Choice',
-                    'description'   => __( 'Default will display an x at the top right of the modal.', 'wpcookieconsent' )
+                    'description'   => __( 'Default will display an &#10005; at the top right of the modal,
+                    while choice will display accept and decline buttons.', 'wpcookieconsent' )
                 ]
             ],
             [

@@ -22,7 +22,7 @@ class Load_Assets
      */
     public function enqueue_frontend_styles() {
         wp_enqueue_style(
-            'wpcookieconsent-frontend',
+            'wpcookieconsent_frontend',
             WPCC_PLUGIN_URL . 'assets/css/public/dist/styles.min.css',
             [],
             '1.0.0'
@@ -33,12 +33,29 @@ class Load_Assets
      * Enqueue scripts for the front end of the plugin.
      */
     public function enqueue_frontend_scripts() {
-        wp_enqueue_script(
-            'wpcookieconsent-frontend',
-            WPCC_PLUGIN_URL . 'assets/js/public/dist/scripts.min.css',
+        // Register the script
+        wp_register_script(
+            'wpcookieconsent_frontend',
+            WPCC_PLUGIN_URL . 'assets/js/public/dist/scripts.min.js',
             [ 'jquery' ],
             '1.0.0'
         );
+
+        // Localize the script with new data
+        $content    = get_option( 'wpcookieconsent_content_settings' );
+        $modal      = get_option( 'wpcookieconsent_modal_settings' );
+        $cookies    = get_option( 'wpcookieconsent_cookie_settings' );
+
+        $translation_array = [
+            'choice'        => ($content['user_consent'] == '0') ? 'default' : 'consent',
+            'dismiss'       => ($modal['dismiss_effect'] == '0') ? 'default' : 'fade',
+            'num'           => $cookies['cookie_duration']['num'],
+            'duration'      => $cookies['cookie_duration']['duration']
+        ];
+        wp_localize_script( 'wpcookieconsent_frontend', 'wp_cookie_consent_plugin', $translation_array );
+
+        // Enqueued script with localized data.
+        wp_enqueue_script( 'wpcookieconsent_frontend' );
     }
 
     /**
@@ -49,7 +66,7 @@ class Load_Assets
             wp_enqueue_style( 'wp-color-picker' );
 
             wp_enqueue_style(
-                'wpcookieconsent-admin',
+                'wpcookieconsent_admin',
                 WPCC_PLUGIN_URL . 'assets/css/admin/dist/styles.min.css',
                 [],
                 '1.0.0'
@@ -63,7 +80,7 @@ class Load_Assets
     public function enqueue_admin_scripts( $hook ) {
         if ( 'toplevel_page_wpcookieconsent' == $hook ) {
             wp_enqueue_script(
-                'wpcookieconsent-admin',
+                'wpcookieconsent_admin',
                 WPCC_PLUGIN_URL . 'assets/js/admin/dist/scripts.min.js',
                 [ 'jquery', 'wp-color-picker' ],
                 '1.0.0',

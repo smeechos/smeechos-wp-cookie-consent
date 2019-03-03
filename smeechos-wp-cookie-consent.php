@@ -17,6 +17,9 @@ namespace Smeechos\WP_Cookie_Consent;
 
 class WP_Cookie_Consent {
 
+    /**
+     * WP_Cookie_Consent constructor.
+     */
     public function  __construct()
     {
         // If this file is called directly, abort.
@@ -45,9 +48,6 @@ class WP_Cookie_Consent {
         include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-load-assets.php' );
         include( WPCC_PLUGIN_ROOT_DIR . 'includes/class-modal.php' );
     }
-
-
-
 }
 
 new WP_Cookie_Consent();
@@ -58,7 +58,7 @@ new WP_Cookie_Consent();
  * @return bool
  */
 function cookies_accepted() {
-    if ( isset($_COOKIE[WPCC_COOKIE_NAME]) && $_COOKIE[WPCC_COOKIE_NAME] === 'accept' ) {
+    if ( isset($_COOKIE[WPCC_COOKIE_NAME]) && $_COOKIE[WPCC_COOKIE_NAME] === 'true' ) {
         return true;
     } else {
         return false;
